@@ -85,12 +85,9 @@ fn ask_list_department(employees: &HashMap<String, Vec<String>>) {
 fn list_all(employees: &HashMap<String, Vec<String>>) {
     println!("");
 
-    let mut depts = Vec::new();
-    for dept in employees.keys() {
-        depts.push(dept);
-    }
-
+    let mut depts: Vec<&String> = employees.keys().collect();
     depts.sort();
+
     for dept in &depts {
         println!("{}", dept);
         list_department(employees, "    ", dept);
